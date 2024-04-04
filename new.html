@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expandable FAQ</title>
+    <style>
+      .faqbox {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+
+      .faqbox.active .answer {
+        max-height: 500px; /* Adjust this value to fit your content */
+      }
+
+      .answer {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 10px;
+        border-top: 1px solid #ccc;
+        transition: max-height 0.4s ease; /* Set transition for both opening and closing */
+      }
+
+      svg {
+        float: right;
+        transition: transform 0.3s;
+      }
+
+      .faqbox.active svg {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faqbox" onclick="toggleAnswer(this)">
+        <span>What is Netflix?</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="36"
+          height="36"
+          color="#fff"
+          fill="none"
+        >
+          <path
+            d="M12 4V20"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M4 12H20"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <div class="answer">
+          Netflix is a streaming service that offers a wide variety of TV shows,
+          movies, anime, documentaries, and more on thousands of
+          internet-connected devices.
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function toggleAnswer(element) {
+        element.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
